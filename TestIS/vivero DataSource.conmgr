@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="vivero DataSource"
+  DTS:DTSID="{E5C40CFC-7E23-4D4D-98C9-23C7431FD0C0}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=ICHI\SQLEXPRESS2014;User ID=sa;Initial Catalog=DB_VIVERO;Provider=SQLNCLI11.1;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAfKDoK9dYX02ZRuMTqW+VMwAAAAACAAAAAAAQZgAAAAEAACAAAAAQAP/g6FiXxthN+2BgqJCYa/3REVSsigsUN8GCpXwH7wAAAAAOgAAAAAIAACAAAAB/2rHALCtKAABUq9HcXr0nSg2WwztDiaVgMKrbTcFkaHAAAAD2xbxAXmgLFScKbHdS0/35IuNKH8MntQcBveRNOdYHkxKFchONUIhrEhAkxNBIeDoQfUNpN9dXCwWjKVawmxruq4SvzuGZNHm6qbuCywSLe1iWXZLsUPloDXxIDBH4Nd5tMaLFJ1Y5m0r5pPzd1dkJQAAAAPL7mM9eCcmgu/yYJa1/YXA+2JCNjXxv/ZGAfcoCia1b7PDvO8Y1gYkMeJj5WvlFf2R9mNrG3ihM7U4jLM+0+i4=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
