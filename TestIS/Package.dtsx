@@ -11,8 +11,8 @@
   DTS:LocaleID="5130"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{F43B9CC0-9DFA-45F6-AFBF-2983D669B045}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{DD78B9F9-1CAB-4CC5-B92A-05BC238DD4CC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAfKDoK9dYX02ZRuMTqW+VMwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD9rC0L7ZV+899Sa6a6+/akf8UlJ4AGl+WTebgySe3dWQAAAAAOgAAAAAIAACAAAABCLw3sYYLOV74VGahX5ch7SLwTUTtVz5c6J2huJZqVNBAAAAA+J6xs7VhYv2rojNq/aFsRQAAAAOlwVvigxbbBh9Myld4NI71FzR2jfg2ZKGYv7U7AVXZ2UAq1m3ekjapaAW0JCgG3Wh9j6UvJq0mB/Du59gK7fsE</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAfKDoK9dYX02ZRuMTqW+VMwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAb4Azwo/2DE1CqB2A6ZxAThDye/bz48TassthMG8WwDgAAAAAOgAAAAAIAACAAAABfyLmbMOzMCQo63YxX43FJhPYOlHMSSmktDRUx9e6PrxAAAACzO8J2DErYYU2PC/hePmfaQAAAAA4X22FiEzCxLHAhakwD/Gy1ZqKxGtQS/VezDEFvDW/TNfTW/Fujy+zsrX0u2JXRj7Cj89WhjS5qanUXeKYbokM</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
