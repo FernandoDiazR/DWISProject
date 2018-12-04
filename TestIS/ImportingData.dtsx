@@ -11,8 +11,8 @@
   DTS:LocaleID="5130"
   DTS:ObjectName="ImportingData"
   DTS:PackageType="5"
-  DTS:VersionBuild="22"
-  DTS:VersionGUID="{3A4E7EE2-D09E-4373-8F9C-A20D0632B4CB}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{1BB996E6-17B9-43F8-8048-EADCEEF4D726}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,7 @@
       DTS:ObjectName="vivero DW">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=ICHI\SQLEXPRESS2014;Initial Catalog=DW_VIVERO;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=ICHI\SQLDEVELOPER2016;Initial Catalog=DW_VIVERO;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>

@@ -11,8 +11,8 @@
   DTS:LocaleID="5130"
   DTS:ObjectName="CreateDW"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{B6F05F4A-7CE8-40C0-BEAF-B2540E0E994A}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{D2C800BB-6DAE-48E1-A4B9-48EF92ABBA2B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,11 +23,11 @@
       DTS:ObjectName="DW vivero">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=ICHI\SQLEXPRESS2014;User ID=sa;Initial Catalog=DW_VIVERO;Provider=SQLNCLI11.1;Auto Translate=False;">
+          DTS:ConnectionString="Data Source=ICHI\SQLDEVELOPER2016;User ID=sa;Initial Catalog=DW_VIVERO;Provider=SQLNCLI11.1;Auto Translate=False;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAfKDoK9dYX02ZRuMTqW+VMwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAArqv6W41h1zo4zwWI4xFJMJCLXzo0lt1H9giH8MVwxQAAAAAAOgAAAAAIAACAAAAD/kR0R+m77lI1PbHpXqAIA4CdRSgfqcMra4PWev8bibxAAAAA9O66046ecZ8uQ9i9CHpORQAAAANPqI5kTjnugn/6MyleSGbJKyzX/GYSrpYe2RA8l3BM5muuTKQtvWaBPdpqZYojHpfr66RnZCnXgS+c8RasQmEs</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAfKDoK9dYX02ZRuMTqW+VMwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADL1LsR42hvuyXeEYl2n5ctUhX1uq5aGuxkdPGEuhYY1gAAAAAOgAAAAAIAACAAAACpyjuAYO0+tK2SDq/bxov4rnpFVkIJTPHvjxOnK9OIhxAAAAA6K38qRTtURFABRgcO4P2dQAAAAKNKXdj7zwi72TKMuBaQihUzGubiHmFlKQG4Kadqc7Y7JZjJ9BnZZk5n52Z5wDjzp1g96V4pSDj/wJF9rzkrcw4</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -38,7 +38,7 @@
       DTS:ObjectName="masterDB">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=ICHI\SQLEXPRESS2014;Initial Catalog=master;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=ICHI\SQLDEVELOPER2016;Initial Catalog=master;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>

@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">ICHI</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAfKDoK9dYX02ZRuMTqW+VMwAAAAACAAAAAAAQZgAAAAEAACAAAADNh2NGjF/MkQMEzLl8yUSZdK3OmQwi+Fnu0J1YuvXb+QAAAAAOgAAAAAIAACAAAABQDviDxZvlRubMWAEXyc9PljDJPlfd76IR2jlEozi+5JAAAABuAK+wS3ZPszBYvCIIgUO0FrPpH9Ie+kAcBI1Aqst3qVj+xF9JZStj3Rt/Yv2/Um/6rdgQ48ularCPooADSUszYlNGOyEOzaIu4pRqgVzq0owCqZlzYEEj/IztUY/3IVGEsDZ0586sb4nAn7dfkBfZgpvH/tVj7UekHGNhjNdXRBuRjftdbnyVDREBT2kvR6dAAAAAj19W3b6ojUdl8PYHThc9ACplEt+vXFoP1oUVxbEws14rNrygBKwGgy73oxq2KB5xn2CvkaaXIW7DCHIvJRCUKw==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAfKDoK9dYX02ZRuMTqW+VMwAAAAACAAAAAAAQZgAAAAEAACAAAABKONkzSeeXcJYKxCJy8ssA6KSXck/Z3X7Cc3UeqGmi+QAAAAAOgAAAAAIAACAAAAAPyZdh7fhDbNkPbtJlUrg1BLWaQ6OWdmPhqblxsCCkBZAAAABK1Qap3ZaaiH4FF4pv+UOA165dZXA6zu/x35Bfwu6cT9i+slZ0CW5wyl7I3RX05qwWarDHat0sNc6vUv8baOSejtUiR2GqowqDLEjgD8cDCdKOoJ5k1/MScACUhxLm252x7JMeCqIsEzs5CLhy40MKlm/8xvv39oVxfalN9gZ2MRKpKt/49vPVQcuC6kAwhHlAAAAAY8cLGfR4xrgmlimbD8scaUhRwSO+Ufuom9uoOabK60bxVyO03Mp2b+B63gKk2GhzfpOGpFv9nHuqhhe5U3jd2w==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -134,10 +134,10 @@
                 <SSIS:Property SSIS:Name="Name">ImportingData</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">22</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">23</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{3A4E7EE2-D09E-4373-8F9C-A20D0632B4CB}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{1BB996E6-17B9-43F8-8048-EADCEEF4D726}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -155,7 +155,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=ICHI\SQLEXPRESS2014;Initial Catalog=DW_VIVERO;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=ICHI\SQLDEVELOPER2016;Initial Catalog=DW_VIVERO;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -214,7 +214,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">ICHI\SQLEXPRESS2014</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">ICHI\SQLDEVELOPER2016</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -240,10 +240,10 @@
                 <SSIS:Property SSIS:Name="Name">CreateDW</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">9</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">10</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{B6F05F4A-7CE8-40C0-BEAF-B2540E0E994A}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{D2C800BB-6DAE-48E1-A4B9-48EF92ABBA2B}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -261,7 +261,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=ICHI\SQLEXPRESS2014;User ID=sa;Initial Catalog=DW_VIVERO;Provider=SQLNCLI11.1;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=ICHI\SQLDEVELOPER2016;User ID=sa;Initial Catalog=DW_VIVERO;Provider=SQLNCLI11.1;Auto Translate=False;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -320,7 +320,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">ICHI\SQLEXPRESS2014</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">ICHI\SQLDEVELOPER2016</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -350,7 +350,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=ICHI\SQLEXPRESS2014;Initial Catalog=master;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=ICHI\SQLDEVELOPER2016;Initial Catalog=master;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -409,7 +409,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">ICHI\SQLEXPRESS2014</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">ICHI\SQLDEVELOPER2016</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
