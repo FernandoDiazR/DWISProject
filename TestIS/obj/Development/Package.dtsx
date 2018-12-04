@@ -11,8 +11,8 @@
   DTS:LocaleID="5130"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{F43B9CC0-9DFA-45F6-AFBF-2983D669B045}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{FC208160-C865-46CC-89B3-DD41EE9471A4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,12 +23,7 @@
       DTS:ObjectName="vivero DW">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=ICHI\SQLEXPRESS2014;User ID=sa;Initial Catalog=DW_VIVERO;Provider=SQLNCLI11.1;Auto Translate=False;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAfKDoK9dYX02ZRuMTqW+VMwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADwaPH2zjG5T8ug/JHvCQlRUOGg/k0+7JNqSmzy6Z/fAgAAAAAOgAAAAAIAACAAAADlNdqx5pEcJuPdPGs0j2MewTC9xEltyzeDjdHuUwYHkxAAAAAGM8BBE70G8z9nQlR0QLLpQAAAAHIhhH7hcH9AQqKIfvBWfv5qsBYVk4n910SL5U6FGM2IcJjkZLQKOPBsEuITluDE0Uv0jnOxOppbxdAJN1CcFP4</DTS:Password>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=ICHI\SQLEXPRESS2014;Initial Catalog=DW_VIVERO;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -2448,6 +2443,18 @@ FROM            dbo.ARTICULOS INNER JOIN
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="110,42"
+          Id="Package\CLEAN"
+          TopLeft="435,32" />
+        <NodeLayout
+          Size="117,42"
+          Id="Package\CREATE"
+          TopLeft="228,27" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Import Braches"
+          TopLeft="218,204" />
+        <NodeLayout
           Size="146,42"
           Id="Package\Import Clients"
           TopLeft="20,30" />
@@ -2455,10 +2462,6 @@ FROM            dbo.ARTICULOS INNER JOIN
           Size="155,42"
           Id="Package\Import Products"
           TopLeft="88,117" />
-        <NodeLayout
-          Size="151,42"
-          Id="Package\Import Braches"
-          TopLeft="218,204" />
         <NodeLayout
           Size="138,42"
           Id="Package\Import Time"
@@ -2471,14 +2474,6 @@ FROM            dbo.ARTICULOS INNER JOIN
           Size="107,42"
           Id="Package\SELLS"
           TopLeft="497,439" />
-        <NodeLayout
-          Size="110,42"
-          Id="Package\CLEAN"
-          TopLeft="435,32" />
-        <NodeLayout
-          Size="117,42"
-          Id="Package\CREATE"
-          TopLeft="228,27" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
           TopLeft="435,50.5">
@@ -2697,6 +2692,82 @@ FROM            dbo.ARTICULOS INNER JOIN
     </LayoutInfo>
   </Package>
   <TaskHost
+    design-time-name="Package\Import Braches">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Import Braches\Origen de OLE DB"
+          TopLeft="118,69" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Import Braches\Destino de OLE DB"
+          TopLeft="291,146" />
+        <EdgeLayout
+          Id="Package\Import Braches.Paths[Salida de origen de OLE DB]"
+          TopLeft="200,111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="175,35"
+              Start="0,0"
+              End="175,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.5"
+                    Point2="0,17.5"
+                    Point3="4,17.5" />
+                  <mssgle:LineSegment
+                    End="171,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="171,17.5"
+                    Point2="175,17.5"
+                    Point3="175,21.5" />
+                  <mssgle:LineSegment
+                    End="175,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Braches\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Braches\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\Import Clients">
     <LayoutInfo>
       <GraphLayout
@@ -2747,19 +2818,6 @@ FROM            dbo.ARTICULOS INNER JOIN
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Import Clients\Origen de OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Import Clients\Destino de OLE DB">
     <Properties>
       <Property>
@@ -2769,6 +2827,19 @@ FROM            dbo.ARTICULOS INNER JOIN
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Clients\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -2823,19 +2894,6 @@ FROM            dbo.ARTICULOS INNER JOIN
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Import Products\Origen de OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Import Products\Destino de OLE DB">
     <Properties>
       <Property>
@@ -2848,58 +2906,8 @@ FROM            dbo.ARTICULOS INNER JOIN
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Import Braches">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="164,42"
-          Id="Package\Import Braches\Origen de OLE DB"
-          TopLeft="118,69" />
-        <NodeLayout
-          Size="168,42"
-          Id="Package\Import Braches\Destino de OLE DB"
-          TopLeft="291,146" />
-        <EdgeLayout
-          Id="Package\Import Braches.Paths[Salida de origen de OLE DB]"
-          TopLeft="200,111">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="175,35"
-              Start="0,0"
-              End="175,27.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,13.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.5"
-                    Point2="0,17.5"
-                    Point3="4,17.5" />
-                  <mssgle:LineSegment
-                    End="171,17.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="171,17.5"
-                    Point2="175,17.5"
-                    Point3="175,21.5" />
-                  <mssgle:LineSegment
-                    End="175,27.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Import Braches\Origen de OLE DB">
+    design-time-name="Package\Import Products\Origen de OLE DB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2908,19 +2916,6 @@ FROM            dbo.ARTICULOS INNER JOIN
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Import Braches\Destino de OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -3012,6 +3007,32 @@ FROM            dbo.ARTICULOS INNER JOIN
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Time\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Time\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Import Vendors">
     <LayoutInfo>
@@ -3063,20 +3084,7 @@ FROM            dbo.ARTICULOS INNER JOIN
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Import Time\Origen de OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Import Time\Destino de OLE DB">
+    design-time-name="Package\Import Vendors\Destino de OLE DB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3098,19 +3106,6 @@ FROM            dbo.ARTICULOS INNER JOIN
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Import Vendors\Destino de OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -3165,14 +3160,6 @@ FROM            dbo.ARTICULOS INNER JOIN
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\SELLS\Origen de OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\SELLS\Destino de OLE DB">
     <Properties>
       <Property>
@@ -3182,6 +3169,14 @@ FROM            dbo.ARTICULOS INNER JOIN
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SELLS\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

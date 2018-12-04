@@ -5,10 +5,6 @@
   DTS:CreationName="OLEDB">
   <DTS:ObjectData>
     <DTS:ConnectionManager
-      DTS:ConnectionString="Data Source=ICHI\SQLEXPRESS2014;User ID=sa;Initial Catalog=DB_VIVERO;Provider=SQLNCLI11.1;Auto Translate=False;">
-      <DTS:Password
-        DTS:Name="Password"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAfKDoK9dYX02ZRuMTqW+VMwAAAAACAAAAAAAQZgAAAAEAACAAAACCUHX3rq1yaTenmGIJ4OqbcxDBeGqFjjZSgNaywmSopQAAAAAOgAAAAAIAACAAAAC5FbNQEa9S5vMa91vZ5QEJOtYLR0sV+upDKIfxSAzYMHAAAAAJEz8dMDIkDtk8lQSRrRWKqRGwtG0PNht7URk7vSBKzC+a7DSbcZ23LyB+fRBz9Axbvo7YKXHAg7EGCeSakLBKMbAtv27MXlna1DMzcNx5qwAeqUWUmyLDuZ5uFQQYpB/0IBWZp8CqX6dRY8Kh0gBuQAAAACzVrjBccLSBwhshwpnjAa0Gjx63+eK3DXsL5t1yMaT92j3WpymOo1rUDEb6nEGg0ggciyk7VezH0AvthSQXKDY=</DTS:Password>
-    </DTS:ConnectionManager>
+      DTS:ConnectionString="Data Source=ICHI\SQLEXPRESS2014;Initial Catalog=DB_VIVERO;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>
