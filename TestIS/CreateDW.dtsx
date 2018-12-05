@@ -11,8 +11,8 @@
   DTS:LocaleID="5130"
   DTS:ObjectName="CreateDW"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{D2C800BB-6DAE-48E1-A4B9-48EF92ABBA2B}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{29959D42-2DA0-4CE0-8890-5E5A103AB79B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,12 +23,7 @@
       DTS:ObjectName="DW vivero">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=ICHI\SQLDEVELOPER2016;User ID=sa;Initial Catalog=DW_VIVERO;Provider=SQLNCLI11.1;Auto Translate=False;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAfKDoK9dYX02ZRuMTqW+VMwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADL1LsR42hvuyXeEYl2n5ctUhX1uq5aGuxkdPGEuhYY1gAAAAAOgAAAAAIAACAAAACpyjuAYO0+tK2SDq/bxov4rnpFVkIJTPHvjxOnK9OIhxAAAAA6K38qRTtURFABRgcO4P2dQAAAAKNKXdj7zwi72TKMuBaQihUzGubiHmFlKQG4Kadqc7Y7JZjJ9BnZZk5n52Z5wDjzp1g96V4pSDj/wJF9rzkrcw4</DTS:Password>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=ICHI\SQLDEVELOPER2016;Initial Catalog=DW_VIVERO;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -70,7 +65,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Create Dim Branch"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -138,7 +133,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Create Dim Vendor"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -276,9 +271,13 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="187,42"
-          Id="Package\Delete Prev DW Tables"
-          TopLeft="76,79" />
+          Size="147,42"
+          Id="Package\Create DB-DW"
+          TopLeft="99,11" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Create Dim Branch"
+          TopLeft="85,256" />
         <NodeLayout
           Size="161,42"
           Id="Package\Create Dim Client"
@@ -287,10 +286,6 @@
           Size="171,42"
           Id="Package\Create Dim Product"
           TopLeft="89,166" />
-        <NodeLayout
-          Size="167,42"
-          Id="Package\Create Dim Branch"
-          TopLeft="85,256" />
         <NodeLayout
           Size="158,42"
           Id="Package\Create Dim Time"
@@ -304,9 +299,9 @@
           Id="Package\Create Fact Sale"
           TopLeft="537,250" />
         <NodeLayout
-          Size="147,42"
-          Id="Package\Create DB-DW"
-          TopLeft="99,11" />
+          Size="187,42"
+          Id="Package\Delete Prev DW Tables"
+          TopLeft="76,79" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
           TopLeft="171,53">

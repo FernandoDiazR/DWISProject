@@ -11,8 +11,8 @@
   DTS:LocaleID="5130"
   DTS:ObjectName="ImportingData"
   DTS:PackageType="5"
-  DTS:VersionBuild="23"
-  DTS:VersionGUID="{1BB996E6-17B9-43F8-8048-EADCEEF4D726}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{608C2648-4221-4C3A-AC06-ACAA490431C5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,6 +29,40 @@
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Create Fact"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{380E2FDC-6B6B-4E40-98AA-EAF98641F516}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Fact"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9F204142-E5E4-4E47-A9A9-F8CAF64402C4}"
+          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[H_Venta](&#xA;&#x9;[id_venta] [int] IDENTITY(1,1) NOT NULL,&#xA;&#x9;[id_producto] [nvarchar](255) NULL,&#xA;&#x9;[id_sucursal] [int] NULL,&#xA;&#x9;[id_cliente] [nvarchar](255) NULL,&#xA;&#x9;[id_vendedor] [int] NULL,&#xA;&#x9;[id_tiempo] [nvarchar](255) NULL,&#xA;&#x9;[cantidad_venta] [int] NULL,&#xA;&#x9;[monto_venta] [nchar](10) NULL,&#xA; CONSTRAINT [PK_H_Venta] PRIMARY KEY CLUSTERED &#xA;(&#xA;&#x9;[id_venta] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]&#xA;) ON [PRIMARY]&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[H_Venta]  WITH CHECK ADD  CONSTRAINT [FK_H_Venta_D_Cliente] FOREIGN KEY([id_cliente])&#xA;REFERENCES [dbo].[D_Cliente] ([id_cliente])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[H_Venta] CHECK CONSTRAINT [FK_H_Venta_D_Cliente]&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[H_Venta]  WITH CHECK ADD  CONSTRAINT [FK_H_Venta_D_Producto] FOREIGN KEY([id_producto])&#xA;REFERENCES [dbo].[D_Producto] ([id_producto])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[H_Venta] CHECK CONSTRAINT [FK_H_Venta_D_Producto]&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[H_Venta]  WITH CHECK ADD  CONSTRAINT [FK_H_Venta_D_Sucursal] FOREIGN KEY([id_sucursal])&#xA;REFERENCES [dbo].[D_Sucursal] ([id_sucursal])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[H_Venta] CHECK CONSTRAINT [FK_H_Venta_D_Sucursal]&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[H_Venta]  WITH CHECK ADD  CONSTRAINT [FK_H_Venta_D_Tiempo] FOREIGN KEY([id_tiempo])&#xA;REFERENCES [dbo].[D_Tiempo] ([id_tiempo])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[H_Venta] CHECK CONSTRAINT [FK_H_Venta_D_Tiempo]&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[H_Venta]  WITH CHECK ADD  CONSTRAINT [FK_H_Venta_D_Vendedor] FOREIGN KEY([id_vendedor])&#xA;REFERENCES [dbo].[D_Vendedor] ([id_vendedor])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[H_Venta] CHECK CONSTRAINT [FK_H_Venta_D_Vendedor]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Delete Fact N Trunc"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{83F791AA-E46C-4A59-B223-CAD4E9A7B6E6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete Fact N Trunc"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9F204142-E5E4-4E47-A9A9-F8CAF64402C4}"
+          SQLTask:SqlStatementSource="IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES&#xA;WHERE table_name = 'H_VENTA')&#xA;DROP TABLE H_VENTA&#xA;GO&#xA;TRUNCATE TABLE D_Cliente&#xA;TRUNCATE TABLE D_Producto&#xA;TRUNCATE TABLE D_Sucursal&#xA;TRUNCATE TABLE D_Vendedor&#xA;TRUNCATE TABLE D_Tiempo" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Import Braches"
       DTS:CreationName="Microsoft.Pipeline"
@@ -2387,6 +2421,22 @@ FROM            dbo.ARTICULOS INNER JOIN
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 5"
       DTS:To="Package\Import Sales" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{CF94D477-667A-4A5A-883D-5721EFCB0185}"
+      DTS:From="Package\Delete Fact N Trunc"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 6"
+      DTS:To="Package\Create Fact" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{241103D1-743D-41BE-83DB-E1AA01D662FE}"
+      DTS:From="Package\Create Fact"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 7"
+      DTS:To="Package\Import Clients" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
@@ -2403,30 +2453,30 @@ FROM            dbo.ARTICULOS INNER JOIN
         <NodeLayout
           Size="151,42"
           Id="Package\Import Braches"
-          TopLeft="334,27" />
+          TopLeft="343,142" />
         <NodeLayout
           Size="146,42"
           Id="Package\Import Clients"
-          TopLeft="58,25" />
+          TopLeft="67,140" />
         <NodeLayout
           Size="155,42"
           Id="Package\Import Products"
-          TopLeft="54,136" />
-        <NodeLayout
-          Size="138,42"
-          Id="Package\Import Time"
-          TopLeft="64,266" />
-        <NodeLayout
-          Size="153,42"
-          Id="Package\Import Vendors"
-          TopLeft="337,146" />
+          TopLeft="63,251" />
         <NodeLayout
           Size="139,42"
           Id="Package\Import Sales"
-          TopLeft="345,267" />
+          TopLeft="354,382" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Import Time"
+          TopLeft="73,381" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Import Vendors"
+          TopLeft="346,261" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="131.25,67">
+          TopLeft="140.25,182">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2448,7 +2498,7 @@ FROM            dbo.ARTICULOS INNER JOIN
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 1]"
-          TopLeft="132.25,178">
+          TopLeft="141.25,293">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2470,7 +2520,7 @@ FROM            dbo.ARTICULOS INNER JOIN
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
-          TopLeft="204,47">
+          TopLeft="213,162">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2492,7 +2542,7 @@ FROM            dbo.ARTICULOS INNER JOIN
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 3]"
-          TopLeft="411.5,69">
+          TopLeft="420.5,184">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2514,7 +2564,7 @@ FROM            dbo.ARTICULOS INNER JOIN
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 4]"
-          TopLeft="414,188">
+          TopLeft="423,303">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2536,7 +2586,7 @@ FROM            dbo.ARTICULOS INNER JOIN
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 5]"
-          TopLeft="202,287.5">
+          TopLeft="211,402.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2548,6 +2598,58 @@ FROM            dbo.ARTICULOS INNER JOIN
                   Capacity="5">
                   <mssgle:LineSegment
                     End="135.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Delete Fact N Trunc"
+          TopLeft="332,37" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Create Fact"
+          TopLeft="77,34" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 6]"
+          TopLeft="332,56.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-122,0"
+              Start="0,0"
+              End="-114.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-114.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 7]"
+          TopLeft="141.75,76">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64"
+              Start="0,0"
+              End="0,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2794,6 +2896,79 @@ FROM            dbo.ARTICULOS INNER JOIN
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\Import Sales">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Import Sales\Origen de OLE DB"
+          TopLeft="71,95" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Import Sales\Destino de OLE DB"
+          TopLeft="311,175" />
+        <EdgeLayout
+          Id="Package\Import Sales.Paths[Salida de origen de OLE DB]"
+          TopLeft="153,137">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="242,38"
+              Start="0,0"
+              End="242,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15"
+                    Point2="0,19"
+                    Point3="4,19" />
+                  <mssgle:LineSegment
+                    End="238,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="238,19"
+                    Point2="242,19"
+                    Point3="242,23" />
+                  <mssgle:LineSegment
+                    End="242,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Sales\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Sales\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\Import Time">
     <LayoutInfo>
       <GraphLayout
@@ -2986,79 +3161,6 @@ FROM            dbo.ARTICULOS INNER JOIN
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Import Sales">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="164,42"
-          Id="Package\Import Sales\Origen de OLE DB"
-          TopLeft="71,95" />
-        <NodeLayout
-          Size="168,42"
-          Id="Package\Import Sales\Destino de OLE DB"
-          TopLeft="311,175" />
-        <EdgeLayout
-          Id="Package\Import Sales.Paths[Salida de origen de OLE DB]"
-          TopLeft="153,137">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="242,38"
-              Start="0,0"
-              End="242,30.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15"
-                    Point2="0,19"
-                    Point3="4,19" />
-                  <mssgle:LineSegment
-                    End="238,19" />
-                  <mssgle:CubicBezierSegment
-                    Point1="238,19"
-                    Point2="242,19"
-                    Point3="242,23" />
-                  <mssgle:LineSegment
-                    End="242,30.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Import Sales\Destino de OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Import Sales\Origen de OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
