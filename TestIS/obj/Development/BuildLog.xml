@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
-    <Name>TestIS</Name>
-    <LastWriteTime>2018-12-05T05:48:58.1951413Z</LastWriteTime>
+    <Name>ISDataWarehouse</Name>
+    <LastWriteTime>2018-12-05T23:52:49.6561984Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
