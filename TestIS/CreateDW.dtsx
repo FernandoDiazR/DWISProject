@@ -11,8 +11,8 @@
   DTS:LocaleID="5130"
   DTS:ObjectName="CreateDW"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{F21FFD10-B11A-4F38-8C4B-B08B2D62A813}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{BD738024-EBFF-41ED-9784-5356ED9BB561}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -209,6 +209,40 @@
           SQLTask:SqlStatementSource="IF OBJECT_ID('dbo.H_Venta', 'U') IS NOT NULL DROP TABLE dbo.H_Venta;&#xA;&#xA;IF OBJECT_ID('dbo.D_Cliente', 'U') IS NOT NULL DROP TABLE dbo.D_Cliente;&#xA;&#xA;IF OBJECT_ID('dbo.D_Producto', 'U') IS NOT NULL DROP TABLE dbo.D_Producto;&#xA;&#xA;IF OBJECT_ID('dbo.D_Sucursal', 'U') IS NOT NULL DROP TABLE dbo.D_Sucursal;&#xA;&#xA;IF OBJECT_ID('dbo.D_Tiempo', 'U') IS NOT NULL DROP TABLE dbo.D_Tiempo;&#xA;&#xA;IF OBJECT_ID('dbo.D_Vendedor', 'U') IS NOT NULL DROP TABLE dbo.D_Vendedor;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DROP FUNCTION"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{B3F57458-F5CC-4CAB-A781-CDF9FF69BE21}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DROP FUNCTION"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AED00104-0173-46DD-A08D-1C2C16AE25B7}"
+          SQLTask:SqlStatementSource="IF OBJECT_ID('dbo.NOMBREMES') IS NOT NULL&#xA;  DROP FUNCTION [dbo].[NOMBREMES]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DROP VIEW"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{D1F8456A-8BD7-4D60-9CA3-C1C25D176E13}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DROP VIEW"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AED00104-0173-46DD-A08D-1C2C16AE25B7}"
+          SQLTask:SqlStatementSource="IF EXISTS(SELECT 1 FROM sys.views WHERE NAME='Vista_Ventas_DW' and TYPE='v')&#x9;&#xA;&#x9;DROP VIEW [dbo].[Vista_Ventas_DW]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
@@ -230,18 +264,34 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 10]"
       DTS:CreationName=""
-      DTS:DTSID="{E0AE28E0-865E-438B-B851-656A6C424F24}"
+      DTS:DTSID="{CBDBF559-C7C0-43E9-B28D-895182B487A8}"
       DTS:From="Package\Create Fact Sale"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 10"
-      DTS:To="Package\Create Function MonthToVar" />
+      DTS:To="Package\DROP FUNCTION" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 11]"
       DTS:CreationName=""
-      DTS:DTSID="{2FAD7206-8E8B-4E52-8738-83ABFE7DC8DE}"
-      DTS:From="Package\Create Function MonthToVar"
+      DTS:DTSID="{C3F78AAC-5B09-4B02-AFAC-9D0E4ECAFBA5}"
+      DTS:From="Package\DROP FUNCTION"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 11"
+      DTS:To="Package\Create Function MonthToVar" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 12]"
+      DTS:CreationName=""
+      DTS:DTSID="{26C7CAC6-FF43-4754-AEE9-A44CB6E900DA}"
+      DTS:From="Package\Create Function MonthToVar"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 12"
+      DTS:To="Package\DROP VIEW" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 13]"
+      DTS:CreationName=""
+      DTS:DTSID="{F485B82B-E979-46FF-A276-711D6DFDDADC}"
+      DTS:From="Package\DROP VIEW"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 13"
       DTS:To="Package\Create View" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
@@ -348,6 +398,14 @@
           Size="156,42"
           Id="Package\Create Fact Sale"
           TopLeft="537,250" />
+        <NodeLayout
+          Size="214,42"
+          Id="Package\Create Function MonthToVar"
+          TopLeft="472,397" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Create View"
+          TopLeft="98,320" />
         <NodeLayout
           Size="187,42"
           Id="Package\Delete Prev DW Tables"
@@ -585,39 +643,39 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="214,42"
-          Id="Package\Create Function MonthToVar"
-          TopLeft="487,342" />
+          Size="136,42"
+          Id="Package\DROP VIEW"
+          TopLeft="95,393" />
         <NodeLayout
-          Size="135,42"
-          Id="Package\Create View"
-          TopLeft="101,344" />
+          Size="161,42"
+          Id="Package\DROP FUNCTION"
+          TopLeft="522,324" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 10]"
           TopLeft="615,292">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-21,50"
+              EndConnector="-12.5,32"
               Start="0,0"
-              End="-21,42.5">
+              End="-12.5,24.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21" />
+                    End="0,12" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,21"
-                    Point2="0,25"
-                    Point3="-4,25" />
+                    Point1="0,12"
+                    Point2="0,16"
+                    Point3="-4,16" />
                   <mssgle:LineSegment
-                    End="-17,25" />
+                    End="-8.5,16" />
                   <mssgle:CubicBezierSegment
-                    Point1="-17,25"
-                    Point2="-21,25"
-                    Point3="-21,29" />
+                    Point1="-8.5,16"
+                    Point2="-12.5,16"
+                    Point3="-12.5,20" />
                   <mssgle:LineSegment
-                    End="-21,42.5" />
+                    End="-12.5,24.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -628,18 +686,74 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 11]"
-          TopLeft="487,364">
+          TopLeft="602.5,366">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-251,0"
+              EndConnector="-23.5,31"
               Start="0,0"
-              End="-243.5,0">
+              End="-23.5,23.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-243.5,0" />
+                    End="0,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5"
+                    Point2="0,15.5"
+                    Point3="-4,15.5" />
+                  <mssgle:LineSegment
+                    End="-19.5,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.5,15.5"
+                    Point2="-23.5,15.5"
+                    Point3="-23.5,19.5" />
+                  <mssgle:LineSegment
+                    End="-23.5,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 12]"
+          TopLeft="472,416">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-241,0"
+              Start="0,0"
+              End="-233.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-233.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 13]"
+          TopLeft="164.25,393">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-31"
+              Start="0,0"
+              End="0,-23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-23.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
